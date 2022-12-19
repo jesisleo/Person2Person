@@ -1,0 +1,318 @@
+@import url('https://fonts.googleapis.com/css2?family=Jura&display=swap%27');
+
+*{
+  margin: 0;
+  padding: 0;
+  font-family: 'Jura', sans-serif;
+}
+
+#header{
+  width: 100%;
+  height: 50px;
+  text-align: center;
+  border-bottom: 4px solid silver;
+  background: #333;
+  color: #fff;
+  line-height: 50px;
+  float: left;
+  font-size: 30px;
+  scrollbar-width:none;
+}
+
+#footer{
+  width: 100%;
+  height: 70px;
+  text-align: center;
+  border-top: 4px solid silver;
+  background: #333;
+  color: #fff;
+  line-height: 70px;
+  float: left;
+}
+
+#map{
+  float: left;
+  width: 100%; /*1650px*/
+  height: 810px;
+  float: left;
+  position: relative;
+  z-index: 0;
+}
+
+#toolbar{
+  height: 230px;
+  width: 250px;
+  background: white;
+  float: right;
+  margin-left: 1650px;
+  position: fixed;
+  margin-top: 54px;
+  text-align: left;
+  padding-left: 10px;
+  vertical-align: middle;
+  line-height: 40px;
+  z-index: 9;
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 25px;
+}
+
+#discription{
+  width: 130px;
+  height: 40px;
+  border-radius: 10px;
+  text-align: left;
+  vertical-align: middle;
+}
+
+#a12{
+  text-align: center;
+  vertical-align: middle;
+}
+
+#linkInput{
+  width: 130px;
+  height: 40px;
+  border-radius: 10px;
+  margin-top: 40px;
+}
+
+#links_window{
+     height: 200px;
+}
+
+#login_window{
+  text-align: right;
+  height: 220px;
+}
+
+#registerWindow{
+  width: 400px;
+  height: 300px;
+  text-align: right;
+}
+
+#ourSign{
+  vertical-align: bottom;
+  position: absolute;
+  font-size: 14px;
+  margin-top: 40px;
+  margin-left: 10px;
+  z-index: 40;
+  color: #fff;
+  height: 20px;
+  line-height: 20px;
+  color: #333;
+}
+
+#signInbutton{
+  font-size: 24px;
+  margin-top: 10px;
+  margin-right: 115px;
+}
+
+#registerInbutton{
+  font-size: 24px;
+  margin-right: 150px;
+}
+
+#kmlButton{
+  height: 40px;
+  width: 90px;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+#kmlButton:hover{
+  color: #000;
+  background: #fafafa;
+  border-radius: 10px;
+  border-color: silver;
+}
+
+#navigation{
+  list-style: none;
+  display: block;
+  position: fixed;
+  width: 50%;
+  height: 50px;
+  text-align: center;
+  margin-top: 15px;
+  margin-left: 60%;
+}
+
+#navigation li {
+  transition: ease-in 0.2s;
+  display: inline;
+  background: #333;
+  border: 1px solid #333;
+  padding: 0 20px;
+  cursor: pointer;
+  color: #fff;
+
+}
+
+#navigation li:hover {
+  transition: ease-out 0.3s;
+  color: #000;
+  background: #fafafa;
+  border-radius: 5px;
+  border-color: silver;
+
+}
+
+#s23, #s24, #s25 {
+  color: #fff;
+  text-decoration: none;
+}
+#s23, #s24, #s25:checked{
+  color: #fff;
+  text-decoration: none;
+}
+
+
+#navigation li:not(:last-of-type) {
+  margin-right: 20px;
+}
+
+#links{
+  list-style: none;
+  display: block;
+  position: fixed;
+  width: 50%;
+  height: 70px;
+  text-align: center;
+  margin-bottom: 10px;
+  margin-left: 60%;
+}
+
+#links li {
+  display: inline;
+  background: #333;
+  border: 1px solid #333;
+  padding: 0 20px;
+  cursor: pointer;
+  color: #fff;
+
+}
+
+#links li:checked:hover {
+  color: #000;
+  background: #fafafa;
+  border-radius: 5px;
+  border-color: silver;
+
+}
+
+#links li:not(:last-of-type) {
+  margin-right: 20px;
+}
+
+.overlay {
+  background-color: rgba(1, 0, 0, 0.77);
+  right: 0;
+  left: 0;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  z-index: 19;
+  display: none;
+}
+/*Слой становится видимым*/
+.overlay:target {
+  display: block;
+}
+/*Растягиваю картинку на всю ширину попапа*/
+.window img {
+ width: 100%;
+}
+/*Характеристики самого окна, которое появляется после клика на кнопке*/
+.window {
+  left: 50%;
+  z-index: 20;
+  margin: 0;
+  position: fixed;
+  padding: 30px;
+  font-size: 24px;
+  border: 1px solid #383738;
+  background: #fefeff;
+  border-radius: 15px;
+  width: 300px;
+  height: 350px;
+  box-shadow: 0 13px 21px rgba(0,1,0,.19),0 21px 63px rgba(0,1,0,.31);
+  transform: translate(-50%, -450%);
+  transition: transform 0.6s ease-out;
+}
+/*Появление модального окошка с верхнего края экрана*/
+.overlay:target+.window {
+  transform: translate(-50%, 0);
+  top: 17%;
+  z-index: 20;
+}
+/*Внешний вид кнопки «Закрыть»*/
+.close {
+  top: -11px;
+  right: -11px;
+  width: 23px;
+  height: 23px;
+  position: absolute;
+  padding: 0;
+  border: 2px solid #ccd;
+  border-radius: 15px;
+  background-color: rgba(61, 61, 61, 0.81);
+  box-shadow: 0 0 12px #010;
+  text-align: center;
+  text-decoration: none;
+  font: 18px sans-serif;
+  font-weight: bold;
+}
+.close:before {
+  color: rgba(254, 254, 254, 0.89);
+  content: "X";
+  text-shadow: 0 1px 3px #010;
+  font-size: 14px;
+}
+/*Изменение характеристик при наведении на область */
+.close:hover {
+  background-color: rgba(253, 21, 0, 0.83);
+  transform: rotate(360deg);
+}
+
+#button {
+  color: #fff;
+  text-decoration: none;
+}
+
+#button:hover {
+  color: #000;
+   text-decoration: none;
+}
+
+#button1 {
+  color: #fff;
+  text-decoration: none;
+}
+
+#button1:hover {
+  color: #000;
+   text-decoration: none;
+}
+
+#button2 {
+  color: #fff;
+  text-decoration: none;
+}
+
+#button2:hover {
+  color: #000;
+   text-decoration: none;
+}
+
+#button3 {
+  color: #fff;
+  text-decoration: none;
+}
+
+#button3:hover {
+  color: #000;
+   text-decoration: none;
+}
